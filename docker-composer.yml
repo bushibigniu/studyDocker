@@ -1,0 +1,70 @@
+version: '2'
+
+services:
+
+    workspace:
+        build:
+            content: ./workspace
+            agrs:
+                - INSTALL_NODE=true
+                - COMPOSER_GLOBAL_INSTALL=true
+                - PUID=1000
+                - PGID=1000
+        volumns_form:
+            - volumns_source
+
+    php-fpm:
+        build:
+            content: ./php-fpm
+            agrs:
+                - INSTALL_ZIP_ARCHIVE=false
+
+            dockerfile: Dcokerfile-70
+        volumns_form:
+            - volumns_source
+        expose:
+            - "9000"
+        links:
+            - workspace
+
+
+    nginx:
+        build:
+            content: ./nginx
+            agrs:
+                - PHP_UPSRREAM=php-fpm
+        volumns_form:
+            - volumns_source
+        volumns:
+            - ./logs/nginx:/var/log/nginx
+            - ./nginx/sites:/etc/ngixn/sites-available
+        ports:
+            - "80:80"
+            - "443:443"
+        links:
+          - php-fpm
+
+    mysql:
+        build: ./mysql
+        volumns_form:
+            - volumns_data
+        ports:
+            - "3306:3306"
+
+    redis:
+        build: ./redis
+        volumns_form:
+            - volumns_data
+        ports:
+            - "6379:6379"
+
+    volumns_source:
+        image: tianon/true
+        volumns:
+            - ../:/var/www
+
+    volumns_data:
+        image: tianon/true
+        volumnes:
+          - ./data/mysql:/var/lib/mysql
+          - ./data/redis:/data
