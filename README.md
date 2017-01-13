@@ -10,3 +10,8 @@ how to use Docker  as a novice
   php
 
   php-fpm
+
+Docker 
+docker ps
+ 
+
