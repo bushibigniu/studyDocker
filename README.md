@@ -51,6 +51,7 @@ how to use Docker  as a novice
     && rm /etc/nginx/conf.d/default.conf \
     && echo "upstream php-upstream {server ${PHP_UPSTREAM}:9000; }" > /etc/nginx/conf.d/upstream.conf
 
+
   CMD ["nginx"]
 
   EXPOSE 80 443
