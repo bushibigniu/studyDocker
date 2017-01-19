@@ -34,7 +34,9 @@ how to use Docker  as a novice
   * 一个镜像不能超过 127 层
      
   #THIS IS COMMIT
+
   FROM nginx:alpine
+  
   MAINTAINER Docker Newbee <newbee@docker.com>
 
   ADD nginx.conf /etc/nginx/
