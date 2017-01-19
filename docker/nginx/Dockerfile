@@ -1,6 +1,6 @@
 FROM nginx:alpine
 
-MAINTAINER Macken <rystlee100@gmail.com>
+MAINTAINER Docker Newbee <newbee@docker.com>
 
 ADD nginx.conf /etc/nginx/
 COPY site* /etc/nginx/site-avaiable/
