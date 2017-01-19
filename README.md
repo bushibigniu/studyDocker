@@ -31,9 +31,9 @@ how to use Docker  as a novice
     7）CMD 命令 来描述容器启动后运行的程序
 
 
-  * 一个镜像不能超过 127 层
+  *一个镜像不能超过 127 层
      
-  # THIS IS COMMIT
+  #THIS IS COMMIT
 
   FROM nginx:alpine
 
@@ -50,6 +50,7 @@ how to use Docker  as a novice
     && adduser -D -H -u 1000 -s /bin/bash www-data \
     && rm /etc/nginx/conf.d/default.conf \
     && echo "upstream php-upstream {server ${PHP_UPSTREAM}:9000; }" > /etc/nginx/conf.d/upstream.conf
+
 
   CMD ["nginx"]
 
