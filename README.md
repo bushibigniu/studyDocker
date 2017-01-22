@@ -20,7 +20,7 @@ how to use Docker  as a novice
 
     2）FROM 指令告诉 Docker 使用哪个镜像作为基础
 
-    3）接着是维护者信息
+    3）接着是维护者信息(MAINTAINER)
 
     4）RUN 开头的指令会在创建中运行，比如安装一个软件包
 
