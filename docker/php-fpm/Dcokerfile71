@@ -11,17 +11,16 @@ RUN apt-get update && \
         libfreetype6-dev \
         libssl-dev \
         libmcrypt-dev \
-        libicu-dev
+        libicu-dev \
+        git \
+        pkg-config \
+        vim
 
-
-# Install the PHP mcrypt extention
-RUN docker-php-ext-install mcrypt
-
-# Install the PHP mysqli extention
-RUN docker-php-ext-install mysqli
-
-# Install the PHP pdo_mysql extention
-RUN docker-php-ext-install pdo_mysql
-
-# Install the PHP intl extention
-RUN docker-php-ext-install intl
+#RUN docker-php-ext-install -j$(nproc) iconv mcrypt \
+RUN docker-php-ext-install iconv mcrypt mysqli pdo_mysql intl\
+	&& pecl install imagick \
+    && docker-php-ext-enable imagick \
+    && pecl install apcu \
+    && docker-php-ext-enable apcu \
+    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install gd bcmath zip opcache  \
