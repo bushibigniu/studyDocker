@@ -19,7 +19,7 @@ services:
             agrs:
                 - INSTALL_ZIP_ARCHIVE=false
 
-            dockerfile: Dcokerfile-70
+            dockerfile: Dcokerfile-71
         volumns_form:
             - volumns_source
         expose:
