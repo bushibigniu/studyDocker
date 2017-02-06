@@ -7,4 +7,5 @@ if [ ! -f docker-compose.yml ]; then
 # 	echo 'rm ok'
 else 
 	cp docker-compose.yml.dist.v1 docker-compose.yml
+	rm -rf docker-compose.yml
 fi

@@ -3,8 +3,8 @@ version: '2'
 services:
 
     nginx:
-        image:nginx
-        volumns:
+        image: nginx
+        volumes:
             - ./logs/nginx:/var/log/nginx
             - ./docker/nginx/sites:/etc/nginx/sites-available
             - ./docker/nginx/:/etc/nginx/conf.d
@@ -13,13 +13,12 @@ services:
             - "80:80"
             - "443:443"
         links:
-          - php-fpm
-          - mysql
-          - redis
-
+            - php-fpm
+            - mysql
+            - redis
     php-fpm:
         build:
-            content: ./docker/php-fpm
+            context: ./docker/php-fpm
             dockerfile: Dcokerfile-71
         expose:
             - "9000"
@@ -31,8 +30,8 @@ services:
 
     mysql:
         build: ./mysql
-        volumnes:
-          - ./data/mysql:/var/lib/mysql
+        volumes:
+            - ./data/mysql:/var/lib/mysql
         ports:
             - "3306:3306"
         environment:
@@ -43,12 +42,7 @@ services:
 
     redis:
         build: ./redis
-        volumnes:
-          - ./data/redis:/data
+        volumes:
+            - ./data/redis:/data
         ports:
             - "6379:6379"
-        environment:
-            MYSQL_DATABASE:test
-            MYSQL_USER:root
-            MYSQL_PASSWORD:PASSWORD
-            MYSQL_ROOT_PASSWORD:PASSWORD
