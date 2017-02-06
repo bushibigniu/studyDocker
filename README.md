@@ -2,6 +2,8 @@
 how to use Docker  as a novice
 
 
+使用init.sh 进行初始化docker-composer.yml 
+
 支持的软件 (容器)
   nginx
   
