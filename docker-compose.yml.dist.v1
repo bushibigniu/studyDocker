@@ -57,11 +57,6 @@ services:
             - volumns_data
         ports:
             - "6379:6379"
-        environment:
-            MYSQL_DATABASE:test
-            MYSQL_USER:root
-            MYSQL_PASSWORD:111111
-            MYSQL_ROOT_PASSWORD:111111
 
     volumns_source:
         image: tianon/true

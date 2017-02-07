@@ -2,6 +2,7 @@
 
 if [ ! -f docker-compose.yml ]; then
 	cp docker-compose.yml.dist.v2 docker-compose.yml
+	docker-compose up
 # elif [ -f docker-compose.yml ]; then
 # 	rm -rf docker-compose.yml
 # 	echo 'rm ok'
