@@ -6,8 +6,8 @@ services:
         image: nginx
         volumes:
             - ./logs/nginx:/var/log/nginx
-            - ./docker/nginx/sites:/etc/nginx/sites-available
             - ./docker/nginx/:/etc/nginx/conf.d
+#            - ./docker/nginx/sites:/etc/nginx/sites-available
             - ./project/:/var/www/html
         ports:
             - "8001:80"
