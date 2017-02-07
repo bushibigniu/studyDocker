@@ -8,9 +8,9 @@ services:
             - ./logs/nginx:/var/log/nginx
             - ./docker/nginx/sites:/etc/nginx/sites-available
             - ./docker/nginx/:/etc/nginx/conf.d
-            - ./project/:/var/www
+            - ./project/:/var/www/html
         ports:
-            - "80:80"
+            - "8001:80"
             - "443:443"
         links:
             - php-fpm
@@ -26,7 +26,7 @@ services:
             - mysql
             - redis
         volumes:
-            - ./project:/var/www
+            - ./project:/var/www/html
 
     mysql:
         build: ./mysql
@@ -37,8 +37,8 @@ services:
         environment:
             MYSQL_DATABASE: test
             MYSQL_USER: root
-            MYSQL_PASSWORD: PASSWORD
-            MYSQL_ROOT_PASSWORD: PASSWORD
+            MYSQL_PASSWORD: 123456
+            MYSQL_ROOT_PASSWORD: 123456
 
     redis:
         build: ./redis
