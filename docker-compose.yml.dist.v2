@@ -7,10 +7,10 @@ services:
         volumes:
             - ./logs/nginx:/var/log/nginx
             - ./docker/nginx/:/etc/nginx/conf.d
-#            - ./docker/nginx/sites:/etc/nginx/sites-available
+            - ./docker/nginx/sites:/etc/nginx/sites-available
             - ./project/:/var/www/html
         ports:
-            - "8001:80"
+            - "80:80"
             - "443:443"
         links:
             - php-fpm
