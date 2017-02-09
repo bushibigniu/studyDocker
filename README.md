@@ -1,8 +1,8 @@
 # studyDocker
-how to use Docker  as a novice
 
 
-使用init.sh 进行初始化docker-composer.yml 
+首先：使用init.sh 进行初始化docker-composer.yml 
+然后使用命令：docker-composer up 开启docker 
 
 支持的软件 (容器)
   nginx
