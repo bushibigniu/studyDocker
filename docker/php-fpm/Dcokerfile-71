@@ -27,6 +27,6 @@ RUN docker-php-ext-install iconv mcrypt mysqli pdo_mysql \
 
 ADD ./php.ini /usr/local/etc/php/conf.d
 
-#CMD ["php-fpm"]
+CMD ["php-fpm"]
 
 EXPOSE 9000
