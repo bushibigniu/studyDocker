@@ -34,12 +34,9 @@
 
 
   *一个镜像不能超过 127 层
-     
-  dcoker 命令
-
-进入mysql,docker 命令：docker exec -it test_mysql_1 bash
-
-
+  
+  ps:在编辑makefile 文件 时，如果出现tab 或者空格相关的错误时，是因为makefile 默认的是tab做缩进，而我们的编辑器会把tab设置等于几个空格，所以会出现这样的报错，只要在Linux 里面去编辑makefile 文件，使用tab 做缩进编辑下就可以了。
+ 
 // docker-compose
 
 1 - 运行容器:
@@ -59,9 +56,8 @@ docker-compose build --no-cache {container-name} //如果你想重建整个容�
 //查看日志文件
 docker logs {container-name}
 
-http://blog.it985.com/19150.html
-
-
 2.
 //docker 如何查看已存在的容器所挂载的目录
 docker inspect container_name | grep Mounts -A 20
+
+ 
