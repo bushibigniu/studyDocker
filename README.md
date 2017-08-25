@@ -37,6 +37,10 @@
   
   ps:在编辑makefile 文件 时，如果出现tab 或者空格相关的错误时，是因为makefile 默认的是tab做缩进，而我们的编辑器会把tab设置等于几个空格，所以会出现这样的报错，只要在Linux 里面去编辑makefile 文件，使用tab 做缩进编辑下就可以了。
  
+
+
+docker exec -it testdocker_mysql_1 bash //用docker 方式启动
+
 // docker-compose
 
 1 - 运行容器:
@@ -60,4 +64,12 @@ docker logs {container-name}
 //docker 如何查看已存在的容器所挂载的目录
 docker inspect container_name | grep Mounts -A 20
 
- 
+3.docker-compose down //删除所有容器 ,它也会删除你的数据容器
+docker-compose start //开启 ，看不到界面状态
+
+docker-compose stop   //关闭所有容器
+docker-compose down
+
+docker-compose start
+docker-compose up
+docker-compose up -d
